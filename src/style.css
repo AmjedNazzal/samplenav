@@ -1,0 +1,72 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html,
+body {
+  position: relative;
+  height: 100%;
+}
+
+body {
+  background: #eee;
+  font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: #000;
+  margin: 0;
+  padding: 0;
+}
+
+.swiper-pagination-bullet {
+  width: 64px;
+  height: 2px;
+  background-color: rgba(255, 255, 255, 0.5);
+  opacity: 1;
+  position: relative;
+  overflow: hidden;
+  border-radius: 0%;
+}
+.swiper-pagination-bullet-active::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255);
+  animation: fillBar 5s linear forwards;
+}
+@keyframes fillBar {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
+}
+
+.container-overflow-hidden {
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-content {
+  position: relative;
+  transform: translateY(100%);
+  transition: transform 1s, opacity 1s;
+  transition-delay: 0.2s;
+}
+
+.slide-content.slide-up {
+  transform: translateY(0);
+}
+
+.mobile-nav {
+  transform: translateX(-100%);
+  transition: transform 0.5s, opacity 1s;
+  transition-delay: 0.2s;
+}
+
+.mobile-nav.show {
+  transform: translateX(0);
+}
